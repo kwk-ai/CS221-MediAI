@@ -1,0 +1,1 @@
+docker run --gpus all --ipc=host --network=host --ulimit memlock=-1 --ulimit stack=67108864 -v "$(pwd)":/workspace -w /workspace -p 8888:8888 -it cs221_healthcare_project jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root

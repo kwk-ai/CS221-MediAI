@@ -1,0 +1,18 @@
+#Use NVIDIA PyTorch Container 23.08 as the base image
+FROM nvcr.io/nvidia/pytorch:23.08-py3
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+# Set the working directory inside the container
+WORKDIR /workspace
+
+# Upgrade pip to the latest version
+RUN python -m pip install --upgrade pip
+
+# Upgrade numpy, pandas, and xgboost
+RUN pip install --upgrade numpy pandas xgboost
+
+# Install required packages
+RUN pip install streamlit langchain openai langchain-nvidia-ai-endpoints langgraph
